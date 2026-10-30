@@ -6,3 +6,5 @@ node_modules/
 coverage/
 *.log
 npm-debug.log*
+fix-commit-message.bat
+update-github.bat
