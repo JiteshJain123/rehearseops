@@ -6,7 +6,10 @@ Record on the deployed URL (or localhost) with live keys. Never show `.env`. Rea
 
 **0:15–0:30 · Proof it's live.** Integrations → Verify live call: Nano and Ultra both ✓, real model IDs, latency. "Ultra reasons, Nano does fast extraction, on Nebius Token Factory. Tavily grounds it in docs."
 
+**Before recording:** Nemotron doesn't answer identically every run. Sometimes Ultra proposes pool 25 (blocked, then revised to 15); sometimes it gets 15 straight away. Run the database incident 2–3 times while recording and keep the take with a block. If it never blocks, use the "If it passes first time" line below.
+
 **0:30–1:10 · Hero: the autoscaler trap.** Database incident → Run recovery agent (about 12 s, so cut the wait). Point at E007, "HPA max 6 replicas". Round 1: Ultra proposes pool 25 ("3 × 25 + 10 = 85"). **Blocked**: "at autoscaler max 6 replicas: 6 × 25 + 10 = 160 > 100". Then the "Gate feedback sent back to the model" line. Round 2: Ultra revises to pool 15 (6 × 15 + 10 = 100) and it's approved. "The model sized the pool for the replicas it saw. The gate sized it for the replicas the autoscaler can create."
+*If it passes first time:* open the passing proposal's gate check and say: "This time Ultra sized it for the autoscaler ceiling itself, 6 × 15 + 10 = 100, and the gate verified that arithmetic in code instead of trusting it. When it gets it wrong, as in an earlier run with pool 25, the gate blocks it."
 
 **1:10–1:55 · Real logs, missing facts.** Bring your own logs → Load example custom logs → Run.
 - Facts panel: candidates extracted by pattern + Nano are shown as "Unknown". "The gate starts with zero trust."
@@ -20,4 +23,4 @@ Record on the deployed URL (or localhost) with live keys. Never show `.env`. Rea
 
 **2:40–2:50 · Close.** "Prove the recovery before you run it."
 
-Rules: your own narration, no copyrighted music, public on YouTube, under 3:00. Don't say "100% accurate" or "production-ready". If a live run differs from this script, narrate what actually happened.
+Rules: your own narration, no copyrighted music, under 3:00. Don't say "100% accurate" or "production-ready". If a live run differs from this script, narrate what actually happened.

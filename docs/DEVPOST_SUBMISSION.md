@@ -48,7 +48,7 @@ Read-only connectors (Prometheus, pg_stat_activity) to turn extracted facts into
 Bundled incidents are synthetic; rehearsal is arithmetic over confirmed facts, not a full simulator; hypotheses can be wrong.
 
 ## Links
-Demo: [URL] · Code: [GitHub URL] · Video: [YouTube URL]
+Demo: https://rehearseops.onrender.com · Code: https://github.com/JiteshJain123/rehearseops
 
 ## Feedback on Nebius / NVIDIA (write from your real experience)
 [Setup time for the key, catalog naming, JSON-mode support per model, latency you measured for Ultra vs Nano, reasoning-trace behaviour, any errors and how clear they were.]

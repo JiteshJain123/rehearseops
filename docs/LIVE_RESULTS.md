@@ -11,6 +11,13 @@
 
 The model sized the pool for the replicas it saw, and the gate sized it for the replicas the autoscaler can create. That's the bug this project exists to catch.
 
+## Render deployment run (2026-10-30, https://rehearseops.onrender.com)
+
+- Verify live call: Nano 1.36 s, Ultra 0.81 s.
+- Database incident: 8.6 s, 2 model calls (Nano plan + Ultra), 4,873 tokens, 6 Tavily sources, streamed through Render.
+- Ultra proposed `set_pool_size {poolSize: 15}` (sized for the autoscaler ceiling itself), retries 3 + jitter, and a verification step. All 3 were approved; nothing was blocked.
+- This shows the model's output varies between runs (compare the 12.5 s run above, where pool 25 was blocked). The gate's result for any given proposal is deterministic.
+
 ## Earlier runs (v2.0, before the autoscaler check)
 
 These are kept for the record. In v2.0 the gate checked only current replicas, so Ultra's `pool 30` was approved; v2.1 blocks it (6 × 30 + 10 = 190).
