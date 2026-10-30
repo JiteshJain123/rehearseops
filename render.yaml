@@ -1,0 +1,32 @@
+# One-click deploy on Render: Dashboard → New → Blueprint → pick this repo.
+# You will be asked for the two secret keys; they are never stored in the repo.
+services:
+  - type: web
+    name: rehearseops
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "1"
+      - key: NEBIUS_BASE_URL
+        value: https://api.tokenfactory.nebius.com/v1
+      - key: NEBIUS_REASONING_MODEL
+        value: nvidia/Nemotron-3-Ultra-550b-a55b
+      - key: NEBIUS_FAST_MODEL
+        value: nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B
+      - key: NEBIUS_TIMEOUT_MS
+        value: "90000"
+      - key: MAX_MODEL_RUNS_PER_HOUR
+        value: "30"
+      - key: NEBIUS_API_KEY
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false

@@ -1,0 +1,21 @@
+{
+  "name": "rehearseops",
+  "version": "2.0.0",
+  "private": false,
+  "type": "module",
+  "description": "Incident-recovery agent: NVIDIA Nemotron proposes typed actions, a deterministic gate checks them against confirmed facts, and the model revises until the plan is safe to rehearse.",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test": "node --test",
+    "benchmark": "node scripts/benchmark.mjs",
+    "check": "node --test && node scripts/benchmark.mjs"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
